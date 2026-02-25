@@ -287,11 +287,22 @@
       0%, 100% { border-color: rgba(218,119,86,0.35); box-shadow: 0 4px 30px rgba(218,119,86,0.08), 0 0 60px rgba(218,119,86,0.04); }
       50% { border-color: rgba(218,119,86,0.55); box-shadow: 0 4px 40px rgba(218,119,86,0.15), 0 0 80px rgba(218,119,86,0.08); }
     }
-    .hero-claude-note .company-logo-inline {
-      display: inline-flex;
-      align-items: center;
-      vertical-align: middle;
-      margin: 0 2px;
+    .hero-claude-note .inline-brand {
+      font-style: normal;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      vertical-align: baseline;
+    }
+    .hero-claude-note .inline-brand.intuit {
+      font-weight: 800;
+      color: #5B9BFF;
+      letter-spacing: -0.01em;
+    }
+    .hero-claude-note .inline-brand.anthropic {
+      font-weight: 700;
+      color: #D4A574;
+      letter-spacing: 0.06em;
+      font-size: 0.85em;
+      text-transform: uppercase;
     }
     .hero-claude-note .ryan-sig {
       display: block;
@@ -941,7 +952,7 @@
     </p>
 
     <p class="hero-claude-note">
-      I saw <span class="company-logo-inline"><svg width="55" height="18" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg"><text x="0" y="23" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="26" font-weight="800" fill="#6B9FFF" letter-spacing="-0.01em">intuit</text></svg></span> just partnered with <span class="company-logo-inline"><svg width="85" height="16" viewBox="0 0 170 26" xmlns="http://www.w3.org/2000/svg"><text x="0" y="21" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="700" fill="#D4A574" letter-spacing="0.08em">ANTHROP\C</text></svg></span>, so I thought it'd be fitting to build this page with Claude Code in honor of that. Hope you like it.
+      I saw <span class="inline-brand intuit">Intuit</span> just partnered with <span class="inline-brand anthropic">Anthropic</span>, so I thought it'd be fitting to build this page with Claude Code in honor of that. Hope you like it.
       <span class="ryan-sig">Ryan</span>
     </p>
 
