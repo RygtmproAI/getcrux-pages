@@ -22,8 +22,8 @@
       --glass-hover: rgba(255,255,255,0.08);
       --glow: rgba(35,108,255,0.3);
       --text-primary: #ffffff;
-      --text-secondary: rgba(255,255,255,0.78);
-      --text-tertiary: rgba(255,255,255,0.58);
+      --text-secondary: rgba(255,255,255,0.88);
+      --text-tertiary: rgba(255,255,255,0.65);
       --radius: 16px;
     }
 
@@ -69,14 +69,14 @@
       width: 600px; height: 600px;
       background: radial-gradient(circle, var(--brand-primary), transparent 70%);
       top: -200px; right: -150px;
-      opacity: 0.45;
+      opacity: 0.55;
       animation: blobMorph1 12s ease-in-out infinite;
     }
     .blob-2 {
       width: 500px; height: 500px;
       background: radial-gradient(circle, #8B5CF6, transparent 70%);
       bottom: -100px; left: -100px;
-      opacity: 0.3;
+      opacity: 0.4;
       animation: blobMorph2 15s ease-in-out infinite;
     }
     .blob-3 {
@@ -244,42 +244,62 @@
       max-width: 900px;
       margin: 0 auto 24px;
       animation: fadeInUp 0.8s ease-out 0.2s both;
+      text-shadow: 0 0 40px rgba(255,255,255,0.08);
     }
     .gradient-text {
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent), #8B5CF6);
+      background: linear-gradient(135deg, #4D8FFF, #5CE0FF, #A78BFA, #4D8FFF);
+      background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: gradientShimmer 6s ease-in-out infinite;
+    }
+    @keyframes gradientShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
     .hero-sub {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      max-width: 620px;
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.92);
+      max-width: 640px;
       margin: 0 auto 16px;
       animation: fadeInUp 0.8s ease-out 0.4s both;
+      line-height: 1.7;
     }
     .hero-claude-note {
       font-family: 'Lora', Georgia, serif;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-style: italic;
-      color: #DA7756;
-      max-width: 540px;
+      color: #F0D0B8;
+      max-width: 580px;
       margin: 0 auto 48px;
-      padding: 24px 32px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(218,119,86,0.08), rgba(218,119,86,0.04));
-      border: 1px solid rgba(218,119,86,0.25);
-      line-height: 1.8;
-      animation: fadeInUp 0.8s ease-out 0.55s both;
+      padding: 28px 36px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(218,119,86,0.12), rgba(139,92,246,0.06));
+      border: 1px solid rgba(218,119,86,0.35);
+      line-height: 1.85;
+      animation: fadeInUp 0.8s ease-out 0.55s both, noteGlow 4s ease-in-out infinite;
       text-align: center;
+      text-shadow: 0 0 20px rgba(218,119,86,0.25);
+      box-shadow: 0 4px 30px rgba(218,119,86,0.08), 0 0 60px rgba(218,119,86,0.04);
+    }
+    @keyframes noteGlow {
+      0%, 100% { border-color: rgba(218,119,86,0.35); box-shadow: 0 4px 30px rgba(218,119,86,0.08), 0 0 60px rgba(218,119,86,0.04); }
+      50% { border-color: rgba(218,119,86,0.55); box-shadow: 0 4px 40px rgba(218,119,86,0.15), 0 0 80px rgba(218,119,86,0.08); }
+    }
+    .hero-claude-note .company-logo-inline {
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+      margin: 0 2px;
     }
     .hero-claude-note .ryan-sig {
       display: block;
-      margin-top: 10px;
+      margin-top: 12px;
       font-style: normal;
       font-weight: 600;
-      font-size: 0.9rem;
-      color: rgba(218,119,86,0.75);
+      font-size: 0.95rem;
+      color: rgba(240,208,184,0.8);
       letter-spacing: 0.02em;
     }
     .scroll-indicator {
@@ -669,20 +689,31 @@
     .hero-logos {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
       margin-bottom: 28px;
-      animation: fadeInDown 0.8s ease-out;
+      animation: fadeInDown 0.8s ease-out, logosGlow 5s ease-in-out infinite;
+      padding: 14px 32px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    @keyframes logosGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(35,108,255,0.05); border-color: rgba(255,255,255,0.06); }
+      50% { box-shadow: 0 0 40px rgba(35,108,255,0.12); border-color: rgba(35,108,255,0.15); }
     }
     .hero-logo-divider {
-      font-size: 1.4rem;
-      color: var(--text-tertiary);
+      font-size: 1.6rem;
+      color: rgba(255,255,255,0.4);
       font-weight: 300;
     }
     .intuit-wordmark {
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: #236CFF;
-      letter-spacing: 0.1em;
+      display: inline-flex;
+      align-items: center;
+    }
+    .intuit-wordmark img,
+    .intuit-wordmark svg {
+      height: 32px;
+      width: auto;
     }
 
     /* ============================================
@@ -837,7 +868,7 @@
       .cta-buttons { flex-direction: column; align-items: center; }
       .btn { width: 100%; max-width: 300px; justify-content: center; }
       .hero-logos { gap: 14px; }
-      .intuit-wordmark { font-size: 1.3rem; }
+      .intuit-wordmark svg { height: 24px; }
       .game-cabinet { max-width: 100%; }
     }
     @media (max-width: 480px) {
@@ -894,7 +925,10 @@
         <text x="92" y="20" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#E8642C">.</text>
       </svg>
       <span class="hero-logo-divider">&times;</span>
-      <span class="intuit-wordmark">INTUIT</span>
+      <span class="intuit-wordmark">
+        <img src="https://logo.clearbit.com/intuit.com" alt="Intuit" crossorigin="anonymous" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+        <span style="display:none;font-size:1.7rem;font-weight:800;color:#236CFF;letter-spacing:0.08em">intuit</span>
+      </span>
     </div>
 
     <h1 class="hero-heading">
@@ -907,7 +941,7 @@
     </p>
 
     <p class="hero-claude-note">
-      I saw Intuit just partnered with Anthropic, so I thought it'd be fitting to build this page with Claude Code in honor of that. Hope you like it.
+      I saw <span class="company-logo-inline"><img src="https://logo.clearbit.com/intuit.com" alt="Intuit" style="height:20px;width:auto;border-radius:3px;" crossorigin="anonymous"></span> just partnered with <span class="company-logo-inline"><img src="https://logo.clearbit.com/anthropic.com" alt="Anthropic" style="height:20px;width:auto;border-radius:3px;" crossorigin="anonymous"></span>, so I thought it'd be fitting to build this page with Claude Code in honor of that. Hope you like it.
       <span class="ryan-sig">Ryan</span>
     </p>
 
